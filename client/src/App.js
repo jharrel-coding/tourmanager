@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import AllBands from './components/AllBands';
+import CreateBand from './components/CreateBand';
+import BandDetails from './components/BandDetails';
+import UpdateBand from './components/UpdateBand';
+
+
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AllBands />} path="/" />
+          <Route element={<CreateBand />} path="/new" />
+          <Route element={<BandDetails/>} path="/:id" />
+          <Route element={<UpdateBand/>} path="/:id/update" />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

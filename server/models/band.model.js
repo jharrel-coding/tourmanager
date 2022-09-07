@@ -2,28 +2,29 @@ const mongoose = require('mongoose');
 
 const BandSchema = new mongoose.Schema ({
     bandName: {
-        type: String,
-        required: [true, 'A band name is required'],
-        minLength: [3, 'Campaign Title must be at least 3 characters'],
+        type: String
     },
-    bandMembers: [
-        {
-            memberName: String,
-            instrument: String,
-        }
-    ],
-    description: {
-        type: String,
+    singer: {
+        type: String
     },
-    tourDates: [
-        {
-            showDate: Date,
-            venue: String,
-            capcity: Number,
-            city: String,
-            state: String,
-        }
-    ],
+    guitarist: {
+        type: String
+    },
+    bass: {
+        type: String
+    },
+    drummer: {
+        type: String
+    },
+    secondGuitarist: {
+        type: String
+    },
+    thirdGuitarist: {
+        type: String
+    },
+    hometown: {
+        type: String
+    },
 }, {timestamps: true});
 
 module.exports = mongoose.model('Band', BandSchema)

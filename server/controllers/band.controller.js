@@ -1,10 +1,10 @@
-const Ad = require('../models/band.model');
+const Band = require('../models/band.model');
 
 // CRUD Below -------------------------------------------------------------
 
 // Create
 const createNewBand = (req, res) => {
-    Ad.create(req.body)
+    Band.create(req.body)
         .then((newBand) => {
             res.json({ newBand });
         })
@@ -15,7 +15,7 @@ const createNewBand = (req, res) => {
 
 // Get / Read All
 const getAllBands = (req, res) => {
-    Ad.find()
+    Band.find()
         .then((allBands) => {
             res.json(allBands);
         })
@@ -26,7 +26,7 @@ const getAllBands = (req, res) => {
 
 // Get / Read One
 const getOneBand = (req, res) => {
-    Ad.findOne({ _id: req.params.id })
+    Band.findOne({ _id: req.params.id })
         .then((queriedBand) => {
             res.json(queriedBand);
         })
@@ -37,12 +37,12 @@ const getOneBand = (req, res) => {
 
 // Update - with validators so we can capture and display errors on front end
 const updateBand = (req, res) => {
-    Ad.findOneAndUpdate({ _id: req.params.id }, req.body, {
+    Band.findOneAndUpdate({ _id: req.params.id }, req.body, {
         new: true,
         runValidators: true,
     })
-        .then((updatedBand) => {
-            res.json({ updatedBand });
+        .then((updatedAd) => {
+            res.json({ updatedAd });
         })
         .catch((err) => {
             res.status(400).json({ err });
@@ -51,9 +51,24 @@ const updateBand = (req, res) => {
 
 // Delete
 const deleteBand = (req, res) => {
-    Ad.deleteOne({ _id: req.params.id })
+    Band.deleteOne({ _id: req.params.id })
         .then((deletedResponse) => {
             res.json({ deletedResponse });
+        })
+        .catch((err) => {
+            res.status(400).json({ err });
+        });
+};
+
+// --------------------------------------------------------------------------
+
+const updateStatusBand = (req, res) => {
+    Band.findOneAndUpdate({ _id: req.params.id }, req.body, {
+        new: true,
+        runValidators: true,
+    })
+        .then((updatedAd) => {
+            res.json({ updatedAd });
         })
         .catch((err) => {
             res.status(400).json({ err });
@@ -67,4 +82,5 @@ module.exports = {
     getAllBands,
     updateBand,
     deleteBand,
+    updateStatusBand,
 };
