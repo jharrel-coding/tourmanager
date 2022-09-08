@@ -20,7 +20,7 @@ const UpdateBand = (props) => {
 
     const navigate = useNavigate();
 
-    const [adNotFoundError, setAdNotFoundError] = useState("");
+    const [bandNotFoundError, setBandNotFoundError] = useState("");
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/band/${id}`)
@@ -37,7 +37,7 @@ const UpdateBand = (props) => {
             })
             .catch((err) => {
                 console.log(err.response);
-                setAdNotFoundError(`Ad not found using that ID`);
+                setBandNotFoundError(`Ad not found using that ID`);
             });
     }, []);
 
@@ -78,9 +78,9 @@ const UpdateBand = (props) => {
                     </Link>
                 </div>
             </div>
-            {adNotFoundError ? (
+            {bandNotFoundError ? (
                 <h2>
-                    {adNotFoundError} <Link to="/"><p className="text-primary">Click here to go back</p></Link>
+                    {bandNotFoundError} <Link to="/"><p className="text-primary">Click here to go back</p></Link>
                 </h2>
             ) :
             <div className="col-12 d-flex justify-content-start">
