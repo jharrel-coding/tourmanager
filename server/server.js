@@ -11,6 +11,6 @@ app.use(express.urlencoded({ extended:true }));
 require('./config/mongoose.config.js');
 
 require('./routes/band.routes')(app);
-// require('./routes/tour.routes')(app);
+require('./routes/tour.routes')(app);
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

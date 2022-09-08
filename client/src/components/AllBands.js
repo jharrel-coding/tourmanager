@@ -40,9 +40,6 @@ const AllBands = () => {
                     <thead className="col-12">
                         <tr className="text-start col-12">
                             <th className="col-3">Band Name</th>
-                            <th className="col-3">Address</th>
-                            <th className="col-1">Status</th>
-                            <th className="col-1">Clicks</th>
                             <th className="col-4">Actions</th>
                         </tr>
                     </thead>
