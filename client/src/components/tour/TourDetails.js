@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import * as dayjs from 'dayjs'
 
 const TourDetails = (props) => {
 
@@ -20,6 +21,8 @@ const TourDetails = (props) => {
 
     const [tourNotFoundError, setTourNotFoundError] = useState("");
 
+    const dayjs = require('dayjs');
+
     useEffect(() => {
         axios.get(`http://localhost:8000/api/tour/${id}`)
             .then((response) => {
@@ -30,6 +33,7 @@ const TourDetails = (props) => {
                 setState(response.data.state);
                 setCapacity(response.data.capacity);
                 setVenueImage(response.data.venueImage);
+                setCapacity(response.data.capacity);
             })
             .catch((err) => {
                 console.log(err.response);
@@ -64,6 +68,7 @@ const TourDetails = (props) => {
                         <img src={venueImage} className="img-fluid" height="300px" width="500px" alt="Responsiveimage" />
                         <hr />
                         <h4>{city}, {state}</h4>
+                        <h4>Capacity: {capacity}</h4>
                         <div className="col-6 text-start mt-4">
                             <Link to={`/tour/${id}/update`}>
                                 <button className="btn btn-warning me-2">Update</button>

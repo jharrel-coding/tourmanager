@@ -1,28 +1,30 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import AllBands from './components/AllBands';
-import CreateBand from './components/CreateBand';
-import BandDetails from './components/BandDetails';
-import UpdateBand from './components/UpdateBand';
+import AllBands from './components/band/AllBands';
+import CreateBand from './components/band/CreateBand';
+import BandDetails from './components/band/BandDetails';
+import UpdateBand from './components/band/UpdateBand';
 
 import AllTours from './components/tour/AllTours';
 import CreateTour from './components/tour/CreateTour';
 import TourDetails from './components/tour/TourDetails';
 import UpdateTour from './components/tour/UpdateTour';
 
+import HomePage from './components/HomePage'
 
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <div className="masthead">
       <NavBar />
       <BrowserRouter>
         <Routes>
-          <Route element={<AllBands />} path="/" />
-          <Route element={<CreateBand />} path="/new" />
-          <Route element={<BandDetails/>} path="/:id" />
-          <Route element={<UpdateBand/>} path="/:id/update" />
+          <Route element={<HomePage />} path="/" />
+          <Route element={<AllBands />} path="/band/" />
+          <Route element={<CreateBand />} path="/band/new" />
+          <Route element={<BandDetails/>} path="/band/:id" />
+          <Route element={<UpdateBand/>} path="/band/:id/update" />
           
           <Route element={<AllTours/>} path="/tour" />
           <Route element={<CreateTour/>} path="/tour/new" />

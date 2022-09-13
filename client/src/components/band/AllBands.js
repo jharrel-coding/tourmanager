@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Band.css';
 
 const AllBands = () => {
 
@@ -20,12 +21,9 @@ const AllBands = () => {
     return (
         <div className="col-sm-11 col-md-10 col-lg-8 mx-auto">
             <div>
-            <h2 className="my-4 py-4">Band Dashboard</h2>
+            <h2 className="my-4 py-4 band-text">Band Dashboard</h2>
             <Link to={"/new"}>
-                <button className="btn btn-primary">New Band</button>
-            </Link>
-            <Link to={"/tour/new"}>
-                <button className="btn btn-info">New Show</button>
+                <button className="btn btn-primary">Create A New Band</button>
             </Link>
             </div>
             <hr/>

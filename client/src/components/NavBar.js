@@ -14,13 +14,13 @@ const NavBar = () => {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/">Bands</a>
+                            <a class="nav-link" href="/band">Bands</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/tour">Shows</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/new">New Band</a>
+                            <a class="nav-link" href="/band/new">New Band</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/tour/new">New Show</a>

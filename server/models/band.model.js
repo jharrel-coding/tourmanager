@@ -2,19 +2,24 @@ const mongoose = require('mongoose');
 
 const BandSchema = new mongoose.Schema ({
     bandName: {
-        type: String
+        type: String,
+        required: [true, "You must enter a band name"],
     },
     singer: {
-        type: String
+        type: String,
+        required: [true, "You must enter a singers name"],
     },
     guitarist: {
-        type: String
+        type: String,
+        required: [true, "You must enter a guitarists name"],
     },
     bass: {
-        type: String
+        type: String,
+        required: [true, "You must enter a bassists name"],
     },
     drummer: {
-        type: String
+        type: String,
+        required: [true, "You must enter a drummers name"],
     },
     secondGuitarist: {
         type: String

@@ -2,16 +2,21 @@ const mongoose = require('mongoose');
 
 const TourSchema = new mongoose.Schema ({
     tourDate: {
-        type: Date
+        type: Date,
+        default: () => Date.now(),
+        required: [true, "You must enter a show date"],
     },
     venueName: {
-        type: String
+        type: String,
+        required: [true, "You must enter a venues name"],
     },
     city: {
-        type: String
+        type: String,
+        required: [true, "You must enter what city the show will be in"],
     },
     state: {
         type: String,
+        required: [true, "You must enter what state the show will be in"],
         enum: [
             "Alabama",
             "Alaska",

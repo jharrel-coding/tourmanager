@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Band.css';
 
 const CreateBand = () => {
 
@@ -49,10 +50,10 @@ const CreateBand = () => {
 
     return (
         <div className="col-sm-11 col-md-10 col-lg-8 mx-auto">
-            <h2 className="my-4 py-4">Create A New Band</h2>
+            <h2 className="my-4 py-4 band-text">Create A New Band</h2>
 
             <div className="col-12 d-flex justify-content-start">
-                <form className="col-12 d-flex justify-content-start" onSubmit={createBandHandler}>
+                <form className="col-12 d-flex justify-content-start form-styles" onSubmit={createBandHandler}>
                     <div className="col-12 form-group text-start">
                         <div>
                             <label className="mb-2" htmlFor="bandName">Band Name</label>

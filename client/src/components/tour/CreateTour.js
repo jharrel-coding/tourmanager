@@ -37,10 +37,10 @@ const CreateBand = () => {
 
     return (
         <div className="col-sm-11 col-md-10 col-lg-8 mx-auto">
-            <h2 className="my-4 py-4">Create A New Tour Stop</h2>
+            <h2 className="my-4 py-4 band-text">Create A New Tour Stop</h2>
 
             <div className="col-12 d-flex justify-content-start">
-                <form className="col-12 mt-4 d-flex justify-content-start" onSubmit={createTourHandler}>
+                <form className="col-12 mt-4 d-flex justify-content-start form-styles" onSubmit={createTourHandler}>
                     <div className="col-12 form-group text-start mt-4">
                         <div>
                         <label className="mb-2" htmlFor="tourDate">Date</label>
@@ -133,7 +133,7 @@ const CreateBand = () => {
                     </div>
                 </form>
             </div>
-            <Link className="my-4 mx-2 d-flex justify-content-center" to={"/"}><button className="btn btn-secondary">Cancel</button></Link>
+            <Link className="my-4 mx-2 d-flex justify-content-center" to={"/tour"}><button className="btn btn-secondary">Cancel</button></Link>
         </div>
     )
 }
