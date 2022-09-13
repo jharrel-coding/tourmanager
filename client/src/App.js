@@ -1,4 +1,5 @@
 import './App.css';
+import NavBar from './components/NavBar';
 import AllBands from './components/AllBands';
 import CreateBand from './components/CreateBand';
 import BandDetails from './components/BandDetails';
@@ -15,6 +16,7 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <BrowserRouter>
         <Routes>
           <Route element={<AllBands />} path="/" />

@@ -25,6 +25,24 @@ const BandSchema = new mongoose.Schema ({
     hometown: {
         type: String
     },
+    bandImage: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    photo1: {
+        type: String
+    },
+    photo2: {
+        type: String
+    },
+    photo3: {
+        type: String
+    },
+    photo4: {
+        type: String
+    },
 }, {timestamps: true});
 
 module.exports = mongoose.model('Band', BandSchema)

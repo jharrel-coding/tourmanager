@@ -40,12 +40,12 @@ const AllTours = () => {
                     <thead className="col-12">
                         <tr className="text-start col-12">
                             <th className="col-3">Venue</th>
+                            <th className="col-3">City, State</th>
                             <th className="col-4">Actions</th>
                         </tr>
                     </thead>
                     <tbody  className="col-12">
                         {allTours
-                        // Sort the ads by type - alphabetically
                         .sort((a, b) => {
                             if (a.venueName.toLowerCase() < b.venueName.toLowerCase()) return -1;
                             if (a.venueName.toLowerCase() > b.venueName.toLowerCase()) return 1;
@@ -55,6 +55,7 @@ const AllTours = () => {
                             return (
                                 <tr className="text-start col-12" key={tour._id}>
                                     <td className="col-3"><a href={`/tour/${tour._id}`}>{tour.venueName}</a></td>
+                                    <td className="col-3">{tour.city}, {tour.state}</td>
                                     <td className="col-4">
                                         <Link to={`/tour/${tour._id}`}>
                                             <button className="btn btn-primary mx-1">Details</button>

@@ -12,6 +12,7 @@ const UpdateTour = (props) => {
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [capacity, setCapacity] = useState("");
+    const [venueImage, setVenueImage] = useState("");
 
     const [errors, setErrors] = useState({});
 
@@ -28,6 +29,7 @@ const UpdateTour = (props) => {
                 setCity(response.data.city);
                 setState(response.data.state);
                 setCapacity(response.data.capacity);
+                setVenueImage(response.data.venueImage);
             })
             .catch((err) => {
                 console.log(err.response);
@@ -43,6 +45,7 @@ const UpdateTour = (props) => {
             city,
             state,
             capacity,
+            venueImage,
         })
             .then((response) => {
                 console.log(response);
@@ -56,27 +59,15 @@ const UpdateTour = (props) => {
 
     return (
         <div className="col-sm-11 col-md-10 col-lg-8 mx-auto">
-            <h2 className="my-4 py-4">Update Tour</h2>
-            <div className="col-12 d-flex justify-content-between my-4 align-items-center">
-                <div className="d-flex justify-content-start col-4">
-                    <Link to={"/tour"}>
-                        <button className="btn btn-dark">See All Tours</button>
-                    </Link>
-                </div>
-                <div className="d-flex justify-content-end col-8">
-                    <Link to={"/tour/new"}>
-                        <button className="btn btn-dark mx-2">User Profile</button>
-                    </Link>
-                </div>
-            </div>
+            <h2 className="my-4">Update Tour</h2>
             {tourNotFoundError ? (
                 <h2>
                     {tourNotFoundError} <Link to="/"><p className="text-primary">Click here to go back</p></Link>
                 </h2>
             ) :
             <div className="col-12 d-flex justify-content-start">
-                <form className="col-12 mt-4 d-flex justify-content-start" onSubmit={updateTourHandler}>
-                    <div className="col-5 form-group text-start mt-4">
+                <form className="col-12 " onSubmit={updateTourHandler}>
+                    <div className="col-10 form-group text-start mt-4">
                         <label className="mb-2" htmlFor="tourDate">Date</label>
                         <input type="date" className="form-control mb-2" onChange={(e) => setTourDate(e.target.value)} value={tourDate} />
                         {errors.tourDate ? <p className="text-danger mt-2">{errors.tourDate.message}</p> : null}
@@ -84,6 +75,10 @@ const UpdateTour = (props) => {
                         <label className="mb-2" htmlFor="venueName">Venue Name</label>
                         <input type="text" className="form-control mb-2" onChange={(e) => setVenueName(e.target.value)} value={venueName} />
                         {errors.venueName ? <p className="text-danger mt-2">{errors.venueName.message}</p> : null}
+
+                        <label className="mb-2" htmlFor="venueImage">Venue Image</label>
+                        <input type="text" className="form-control mb-2" onChange={(e) => setVenueImage(e.target.value)} value={venueImage} />
+                        {errors.venueImage ? <p className="text-danger mt-2">{errors.venueImage.message}</p> : null}
 
                         <label className="mb-2" htmlFor="city">City</label>
                         <input type="text" className="form-control mb-2" onChange={(e) => setCity(e.target.value)} value={city} />
@@ -98,7 +93,7 @@ const UpdateTour = (props) => {
                         {errors.capacity ? <p className="text-danger mt-2">{errors.capacity.message}</p> : null}
                     </div>
 
-                    <div className="col-5 form-group text-start mt-4">
+                    <div className="col-10 form-group text-start mt-4">
 
                         <button className="btn btn-primary my-4" type="submit">Submit</button>
                     </div>
@@ -106,7 +101,6 @@ const UpdateTour = (props) => {
                 </form>
             </div>
             }
-            <Link className="my-4 mx-2 d-flex justify-content-end" to={"/tour"}><button className="btn btn-secondary">Cancel</button></Link>
         </div>
     )
 }
